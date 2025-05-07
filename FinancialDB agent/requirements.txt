@@ -1,0 +1,21 @@
+# Core dependencies
+flask
+python-dotenv
+
+# Database
+psycopg2-binary
+
+# LangChain and related dependencies
+langchain
+langchain-core
+langchain-google-genai
+langchain-chroma
+
+# Vector database
+chromadb
+
+# Embeddings and models
+google-generativeai
+
+# Utils
+pydantic

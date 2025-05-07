@@ -1,0 +1,104 @@
+# Financial Transaction Information
+
+## Company Profile
+COMPANY: FinTech Payment Solutions
+LOCATION: 123 Financial Boulevard, Bankville, BV 45678
+ESTABLISHED: 2010
+LICENSE: FRB-54321-P, expires 2026-12-31
+CERTIFICATIONS: ISO 27001, PCI DSS Level 1, GDPR Compliant
+CONTACT: support@fintechpayments.example.com, +1-555-987-6543
+WEBSITE: www.fintech-payments.example.com
+HOURS: 24/7 Support available
+SERVICES: Payment processing, Transaction analysis, Fraud detection, Merchant services
+
+## About Us
+FinTech Payment Solutions is a leading financial technology company providing payment processing and transaction analysis services to merchants, financial institutions, and e-commerce platforms worldwide. Founded in 2010, we've built a reputation for reliability, security, and advanced analytics. Our cutting-edge technology ensures secure and efficient payment processing while providing detailed insights into transaction data.
+
+## Transaction Types
+
+### Card Present Transactions
+- CHIP_READ: EMV chip card transactions processed at physical terminals
+- MAG_STRIPE: Traditional magnetic stripe card swipes
+- CONTACTLESS: NFC and contactless payment methods
+- MANUAL_ENTRY: Card details manually entered at a terminal
+
+### Card Not Present Transactions
+- ECOMMERCE: Online purchases through websites or apps
+- MOTO: Mail order/telephone order transactions
+- RECURRING: Subscription or recurring billing payments
+- DIGITAL_WALLET: Payments using Apple Pay, Google Pay, etc.
+
+### Special Transaction Types
+- MEGASTRIPE: High-security processing for large transactions (identified by positional_ID with 'a' or 'b' in first position and 'c' in position 6)
+- INTERNAL: Internal bank transfers or settlement transactions (identified by positional_ID with 'x' or 'y' in first position and 'z' in position 6)
+- PHONE: Transactions initiated via phone banking (identified by positional_ID with 'j' or 'k' in first position and 'l' in position 6)
+
+## Transaction Status Codes
+
+### Action Codes
+- 1, 2, 3: Transaction APPROVED - Payment successfully authorized
+- 8, 9, 0: NOT APPROVED - Request incomplete or invalid
+- Other values: DECLINED - Transaction declined by issuer
+
+### Common Decline Reasons (add_resp field)
+- INSUFFICIENT_FUNDS: Account lacks sufficient funds
+- EXCEEDS_LIMIT: Transaction exceeds card limit
+- CARD_EXPIRED: Card expiration date has passed
+- SUSPECTED_FRAUD: Potential fraudulent activity detected
+- INVALID_CARD: Card number invalid or non-existent
+- CARD_RESTRICTED: Card restricted by issuer
+- SYSTEM_ERROR: System processing error
+- AUTH_TIMEOUT: Authorization timeout
+
+## Merchant Category Codes (MCC)
+- 5411: Grocery Stores, Supermarkets
+- 5812: Eating Places, Restaurants
+- 5541: Service Stations (Gas Stations)
+- 5912: Drug Stores, Pharmacies
+- 5732: Electronics Stores
+- 5311: Department Stores
+- 4511: Airlines, Air Carriers
+- 7011: Hotels, Motels, Resorts
+- 7512: Automobile Rental Agency
+- 8062: Hospitals
+
+## Transaction Query Guidelines
+
+### Common Query Parameters
+- account_number: To find transactions for a specific account
+- transDate: For transactions on a specific date
+- UID: To retrieve a specific transaction
+- mcc: To filter by merchant category
+- action_code: To filter by approval status
+- mName/mCity: To filter by merchant details
+- requested_amount: To search by transaction amount
+- currency_code: To filter by currency
+
+### Security Protocols
+- AUTH3D: 3D Secure authenticated transaction
+- TOKEN: Tokenized payment method
+- AVS: Address Verification Service used
+- CVV: Card Verification Value checked
+- STANDARD: Basic authorization
+
+## Frequently Asked Questions
+
+### Transaction Processing
+Q: How long does it take for a transaction to be processed?
+A: Standard transactions are typically processed within 2-3 seconds. Complex transactions requiring additional security checks may take 5-10 seconds.
+
+Q: Why might a transaction be declined?
+A: Transactions can be declined for various reasons including insufficient funds, suspected fraud, expired cards, exceeded limits, or technical issues with the payment system.
+
+Q: What is the difference between requested_amount and issuer_amount?
+A: The requested_amount is in the local currency of the transaction, while issuer_amount is the amount in the currency of the card issuer, after any currency conversion.
+
+### Transaction Monitoring
+Q: How can I check the status of a specific transaction?
+A: You can query transactions using the UID or trace number as a unique identifier.
+
+Q: How are international transactions handled?
+A: International transactions are processed with automatic currency conversion. The system records both the original requested amount and the converted amount in the card's currency.
+
+Q: What information is needed to investigate a disputed transaction?
+A: To investigate a dispute, we typically need the UID, account number, transaction date, merchant details, and the nature of the dispute.

@@ -1,0 +1,83 @@
+-- Financial Transaction Database Setup
+-- This script creates the transactions table needed for the financial transaction chatbot
+
+-- Create database (uncomment if you need to create the database)
+-- CREATE DATABASE financialanalytics;
+
+-- Create transactions table
+CREATE TABLE transactions (
+    UID VARCHAR(100) PRIMARY KEY,
+    account_number VARCHAR(50),
+    transDate DATE,
+    transaction_time TIME,
+    issues VARCHAR(100),
+    acquirer VARCHAR(100),
+    traceNo VARCHAR(50),
+    requested_amount DECIMAL(15, 2),
+    currency_code VARCHAR(3),
+    issuer_amount DECIMAL(15, 2),
+    dollar_amount DECIMAL(15, 2),
+    approval_code VARCHAR(20),
+    mcc VARCHAR(10),
+    action_code VARCHAR(10),
+    funncode VARCHAR(20),
+    add_resp TEXT,
+    responseTime DECIMAL(10, 2),
+    swout_indicator VARCHAR(10),
+    positional_ID VARCHAR(20),
+    forwall_C VARCHAR(20),
+    merchant_NUM VARCHAR(50),
+    mName VARCHAR(100),
+    mAdd TEXT,
+    mCity VARCHAR(100),
+    mGeo VARCHAR(50),
+    authType VARCHAR(20),
+    mti VARCHAR(20)
+);
+
+-- Insert sample data for testing
+INSERT INTO transactions 
+(UID, account_number, transDate, transaction_time, issues, acquirer, traceNo, 
+requested_amount, currency_code, issuer_amount, dollar_amount, approval_code, 
+mcc, action_code, funncode, add_resp, responseTime, swout_indicator, 
+positional_ID, forwall_C, merchant_NUM, mName, mAdd, mCity, mGeo, authType, mti)
+VALUES 
+('TX1001', '4321098765', '2025-05-01', '14:30:22', 'VISA', 'FirstBank', 'TR78901',
+1250.00, 'USD', 1250.00, 1250.00, 'AP7890', '5411', '1', 'F001', NULL, 1.2, 'Y',
+'a12345c78', 'FC001', 'M12345', 'Grocery Express', '123 Food St', 'Chicago', 'US', 'SECURE', 'MTI100'),
+
+('TX1002', '8765432109', '2025-05-01', '16:45:33', 'MASTERCARD', 'CitiBank', 'TR23456',
+89.99, 'USD', 89.99, 89.99, 'AP4567', '5732', '2', 'F002', NULL, 0.8, 'N',
+'b98765c12', 'FC002', 'M23456', 'Electronics World', '456 Tech Ave', 'New York', 'US', 'SECURE', 'MTI200'),
+
+('TX1003', '1234567890', '2025-05-02', '09:12:45', 'AMEX', 'ChaseBank', 'TR34567',
+499.50, 'USD', 499.50, 499.50, NULL, '5311', '4', 'F003', 'INSUFFICIENT_FUNDS', 2.1, 'Y',
+'x45678z90', 'FC003', 'M34567', 'Department Store', '789 Shop St', 'Los Angeles', 'US', 'STANDARD', 'MTI300'),
+
+('TX1004', '9876543210', '2025-05-02', '11:30:15', 'VISA', 'WellsFargo', 'TR45678',
+24.50, 'EUR', 27.30, 27.30, 'AP5678', '5812', '3', 'F004', NULL, 1.5, 'N',
+'j56789l23', 'FC004', 'M45678', 'Cafe Paris', '321 Bistro Ln', 'Paris', 'FR', 'SECURE', 'MTI400'),
+
+('TX1005', '5678901234', '2025-05-03', '15:22:18', 'MASTERCARD', 'CapitalOne', 'TR56789',
+1500.00, 'GBP', 1950.00, 1950.00, NULL, '5099', '9', 'F005', 'SUSPECTED_FRAUD', 3.2, 'Y',
+'y67890z45', 'FC005', 'M56789', 'Luxury Goods', '564 High St', 'London', 'UK', 'SECURE', 'MTI500'),
+
+('TX1006', '2345678901', '2025-05-04', '08:45:30', 'VISA', 'BankOfAmerica', 'TR67890',
+75.25, 'USD', 75.25, 75.25, 'AP6789', '5541', '1', 'F006', NULL, 0.9, 'N',
+'a78901c34', 'FC006', 'M67890', 'Gas Station', '987 Fuel Rd', 'Dallas', 'US', 'STANDARD', 'MTI600'),
+
+('TX1007', '9012345678', '2025-05-04', '17:10:55', 'MASTERCARD', 'HSBC', 'TR78901',
+350.00, 'CAD', 265.00, 265.00, NULL, '7011', '5', 'F007', 'CARD_EXPIRED', 1.8, 'Y',
+'k89012l56', 'FC007', 'M78901', 'Grand Hotel', '123 Suite Ave', 'Toronto', 'CA', 'SECURE', 'MTI700'),
+
+('TX1008', '3456789012', '2025-05-05', '10:30:42', 'VISA', 'Barclays', 'TR89012',
+1200.00, 'USD', 1200.00, 1200.00, 'AP8901', '4511', '1', 'F008', NULL, 1.1, 'N',
+'x90123z67', 'FC008', 'M89012', 'Airways Travel', '456 Flight Way', 'New York', 'US', 'SECURE', 'MTI800'),
+
+('TX1009', '6789012345', '2025-05-05', '14:15:20', 'AMEX', 'DeutscheBank', 'TR90123',
+80.50, 'EUR', 90.20, 90.20, NULL, '5812', '0', 'F009', 'SYSTEM_ERROR', 4.5, 'Y',
+'j01234l78', 'FC009', 'M90123', 'Restaurant Berlin', '789 Food St', 'Berlin', 'DE', 'STANDARD', 'MTI900'),
+
+('TX1010', '7890123456', '2025-05-06', '09:45:12', 'MASTERCARD', 'UBS', 'TR01234',
+299.99, 'CHF', 330.45, 330.45, 'AP0123', '5722', '2', 'F010', NULL, 1.3, 'N',
+'b12345c89', 'FC010', 'M01234', 'Furniture Store', '321 Home Blvd', 'Zurich', 'CH', 'SECURE', 'MTI1000');
